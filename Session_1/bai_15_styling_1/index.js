@@ -78,8 +78,12 @@ Vue.createApp({
             count: 0,
             lastName: 'Le',
             firstName: 'Hoang Long',
+            fullDataName: "",
         };
     },
+    /**
+     * Dùng khi cần dùng nhiều data để tính toán
+     */
     computed: {
         fullName() {
             console.log('run')
@@ -87,6 +91,9 @@ Vue.createApp({
             // Chỉ chạy khi giá trị thay đổi;
         },
     },
+    /**
+     * Dùng khi theo dõi 1 data duy nhất
+     */
     watch: {
         count(newValue, oldValue) {
             console.log("da thay doi data count", newValue);
@@ -97,14 +104,19 @@ Vue.createApp({
             if (newValue > 10) {
                 this.count = 0;
             }
+        },
+        lastName(newValue) {
+            this.fullDataName = this.lastName + " " + this.firstName
+        },
+        firstName(newValue) {
+            this.fullDataName = this.lastName + " " + this.firstName
         }
     },
-    get watch() {
-        return this._watch;
-    },
-    set watch(value) {
-        this._watch = value;
-    },
+    /**
+     * methods dung để xử lí:
+     *  - events
+     *  - function (tính năng trên trang web)
+     */
     methods: {
         // getFullName() {
         //     console.log("run getFullname");
@@ -117,3 +129,24 @@ Vue.createApp({
         },
     },
 }).mount("#computed-and-watches")
+
+Vue.createApp({
+    data() {
+        return {
+            styleForP: {
+                backgroundColor: "red",
+                color: "yellow",
+                fontSize: 28,
+            },
+            styleForText: {
+                textAlign: "left"
+            }
+        };
+    },
+    methods: {
+        handleStyle() {
+            var randomColor = Math.floor(Math.random()*16777215).toString(16);
+            this.styleForP.backgroundColor = "#" + randomColor;
+        }
+    }
+}).mount("#styling")
