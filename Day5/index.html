@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div class="nav-bar">
+            <ul class="nav-list">
+                <!-- v-for -->
+                <li v-for="item in navItem" class="nav-item">
+                    <a class="nav-item__svg">
+                        <img :src="item.svgUrl" alt="">
+                    </a>
+                    <div class="nav-item__text">
+                        <p>
+                            {{item.navName}}
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="body">
+            <div class="body__header">
+                <span>Quảng cáo</span>
+                <span>Quảng cáo</span>
+            </div>
+            <div class="content">
+                <div class="content-header">
+                    <h2>Nền tảng quảng cáo</h2>
+                    <p>Bạn muốn tạo chiến dịch quảng cáo trên nền tảng</p>
+                </div>
+                <div class="content-item">
+                    <!-- v-for -->
+                    <div v-for="item in flatformItem" class="content-item__flatform">
+                        <img :src="item.img" alt="">
+                        <h3>{{item.name}}</h3>
+                    </div>
+                </div>
+                <div content-button>
+                    <button>Tiếp(1/6)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./main.js"></script>
+</body>
+</html>

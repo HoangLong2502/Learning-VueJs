@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+:root {
+  --bg-color-1: #e0e0eb;
+  --bg-color-2: #fff;
+  --text-color-1: #585ca2;
+  --text-color-2: #8f90a6;
+  --text-color-header: #28293d;
+  --button-color: #585ca2;
+}
+
+@mixin text-regular {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@mixin text-bold {
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: var(--bg-color-1);
+}
+
+#app {
+  margin-top: 100px;
+}
+
+// body {
+// }
+
+.nav-bar {
+  position: fixed;
+  left: 0;
+  width: 253px;
+  height: 100vh;
+  padding: 25px;
+  background-color: var(--bg-color-2);
+
+  & .nav-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    & .nav-item {
+      @include text-regular();
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+      cursor: pointer;
+
+      & .nav-item__text {
+        margin-left: 25px;
+        color: var(--text-color-2);
+      }
+    }
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  width: 951px;
+  margin-left: 400px;
+
+  &__header {
+    width: 100%;
+    margin-top: 25px;
+    @include text-bold;
+
+    & span {
+      margin-right: 25px;
+      color: var(--text-color-header);
+    }
+
+    & span + span {
+      padding-left: 25px;
+      font-size: 16px;
+      line-height: 24px;
+      color: #585ca2;
+      border-left: 1px solid #c7c9d9;
+    }
+  }
+
+  & .content {
+    width: 100%;
+    padding: 30px 25px;
+    margin-top: 50px;
+    background-color: var(--bg-color-2);
+    box-shadow: 0px 2px 4px rgba(40, 41, 61, 0.04),
+      0px 8px 16px rgba(96, 97, 112, 0.16);
+    border-radius: 8px;
+
+    &-header {
+      @include text-regular;
+      color: var(--text-color-header);
+
+      & p {
+        @include text-regular;
+        font-size: 14px;
+        line-height: 21px;
+        margin-top: 10px;
+        color: var(--text-color-2);
+      }
+    }
+  }
+}
